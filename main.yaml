@@ -1,5 +1,5 @@
 - name: "installing {{component}} server" 
-  hosts: all 
+  hosts: localhost
   become: yes
   connection: local
   vars_files:
