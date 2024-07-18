@@ -1,4 +1,4 @@
 login_user: root 
 MYSQL_HOST: db-dev.bigmatrix.in
 sql_password: ExpenseApp@1
-# MY_HOST: mysql.bigmatrix.in
+MY_HOST: mysql.bigmatrix.in
