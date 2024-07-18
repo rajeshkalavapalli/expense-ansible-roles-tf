@@ -1,0 +1,36 @@
+- name: Install nginx
+  ansible.builtin.dnf:
+    name: nginx
+    state: present
+    
+- name: Enable nginx
+  ansible.builtin.service:
+    name: nginx
+    enabled: yes
+    state: started
+
+- name: remove html 
+  ansible.builtin.command: rm -rf {{APP_LOCATION}}/*
+
+- name: run app pre-requisites
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-set
+
+# - name: unzip 
+#   ansible.builtin.unarchive:
+#     src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-{{frontend}}-v2.zip
+#     dest: "{{APP_LOCATION}}"
+#     remote_src: yes
+
+- name: copy backend conf
+  ansible.builtin.template:
+    src: expense.conf.j2
+    dest: /etc/nginx/default.d/expense.conf
+  notify:
+  - restart nginx
+
+# - name: Restart Nginx
+#   ansible.builtin.service:
+#     name: nginx
+#     state: restarted

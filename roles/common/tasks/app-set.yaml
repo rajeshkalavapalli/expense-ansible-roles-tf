@@ -1,0 +1,15 @@
+- name: create app directory  # this will not impact the process
+  ansible.builtin.file:
+    path: "{{APP_LOCATION}}" 
+    state: directory
+
+- name: Download the application
+  ansible.builtin.get_url:
+    url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-{{component}}-v2.zip
+    dest: /tmp/{{component}}.zip
+
+- name: unzipping 
+  ansible.builtin.unarchive:
+    src: /tmp/{{component}}.zip
+    dest: "{{APP_LOCATION}}"
+    remote_src: yes

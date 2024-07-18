@@ -1,0 +1,10 @@
+- name: "installing {{component}} server" 
+  hosts: localhost 
+  become: yes
+  connection: local
+  vars_files:
+  - "variables-{{environment}}"
+  roles:
+    - "{{component}}"
+
+
