@@ -1,9 +1,9 @@
 - name: "installing {{component}} server" 
-  hosts: localhost 
+  hosts: all 
   become: yes
   connection: local
   vars_files:
-  - "variables-{{environment}}"
+  - "variables-{{environment}}.yaml"
   roles:
     - "{{component}}"
 
