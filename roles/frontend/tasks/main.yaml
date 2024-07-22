@@ -23,14 +23,14 @@
 #     dest: "{{APP_LOCATION}}"
 #     remote_src: yes
 
-- name: copy backend conf
+- name: copy frontend conf
   ansible.builtin.template:
     src: expense.conf.j2
     dest: /etc/nginx/default.d/expense.conf
   notify:
   - restart nginx
 
-# - name: Restart Nginx
-#   ansible.builtin.service:
-#     name: nginx
-#     state: restarted
+- name: Restart Nginx
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
