@@ -3,11 +3,11 @@
     name: nginx
     state: present
     
-- name: Enable nginx
-  ansible.builtin.service:
-    name: nginx
-    enabled: yes
-    state: started
+# - name: Enable nginx
+#   ansible.builtin.service:
+#     name: nginx
+#     enabled: yes
+#     state: started
 
 - name: remove html 
   ansible.builtin.command: rm -rf {{APP_LOCATION}}/*
