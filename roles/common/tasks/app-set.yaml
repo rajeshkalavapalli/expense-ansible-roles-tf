@@ -9,12 +9,13 @@
 #     dest: /tmp/{{component}}.zip
 
 - name: Download artifact from nexus
-  ansible.builtin.get_url:
+  ansible.builtin.unarchive:
     url: http://44.202.115.103:8081/repository/{{component}}//com/expense/{{component}}/{{appVersion}}/{{component}}-{{appVersion}}.zip
     dest: /tmp/{{component}}.zip
-
-- name: unzipping 
-  ansible.builtin.unarchive:
-    src: /tmp/{{component}}.zip
-    dest: "{{APP_LOCATION}}"
     remote_src: yes
+
+# - name: unzipping 
+#   ansible.builtin.unarchive:
+#     src: /tmp/{{component}}.zip
+#     dest: "{{APP_LOCATION}}"
+#     remote_src: yes
