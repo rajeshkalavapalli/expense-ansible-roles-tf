@@ -18,10 +18,10 @@
     name: common
     tasks_from: app-set
 
-- name: install npm dependencies 
-  ansible.builtin.shell: npm install
-  args:
-    chdir: "{{ APP_LOCATION }}"
+# - name: install npm dependencies 
+#   ansible.builtin.shell: npm install
+#   args:
+#     chdir: "{{ APP_LOCATION }}"
 
 - name: copy backend service 
   ansible.builtin.template:

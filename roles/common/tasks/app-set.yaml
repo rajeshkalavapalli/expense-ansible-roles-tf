@@ -3,9 +3,14 @@
     path: "{{APP_LOCATION}}" 
     state: directory
 
-- name: Download the application
+# - name: Download the application
+#   ansible.builtin.get_url:
+#     url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-{{component}}-v2.zip
+#     dest: /tmp/{{component}}.zip
+
+- name: Download artifact from nexus
   ansible.builtin.get_url:
-    url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-{{component}}-v2.zip
+    url: repository/{{compoent}}//com/expense/{{component}}/{{appVersion}}/{{component}}-{{appVersion}}.zip
     dest: /tmp/{{component}}.zip
 
 - name: unzipping 
