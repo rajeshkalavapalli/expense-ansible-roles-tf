@@ -41,10 +41,6 @@
 - name: install mysql 
   ansible.builtin.command: dnf install mysql -y
 
-- name: knwoing 
-  ansible.builtin.debug:
-    msg: mysql -h {{ MYSQL_HOST }} -uroot -p{{ sql_password }} < /app/schema/backend.sql
-
 - name: Load Schema
   ansible.builtin.shell: mysql -h {{ MYSQL_HOST }} -uroot -p{{ sql_password }} < /app/schema/backend.sql
 
