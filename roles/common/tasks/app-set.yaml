@@ -10,7 +10,7 @@
 
 - name: Download artifact from nexus
   ansible.builtin.get_url:
-    url: repository/{{component}}/com/expense/{{component}}/{{appVersion}}/{{component}}-{{appVersion}}.zip
+    url: http://44.202.115.103:8081/repository/{{compoent}}//com/expense/{{component}}/{{appVersion}}/{{component}}-{{appVersion}}.zip
     dest: /tmp/{{component}}.zip
 
 - name: unzipping 
