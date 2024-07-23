@@ -10,11 +10,12 @@
 
 - name: nexus artifact url
   ansible.builtin.debug:
-    msg: http://44.202.115.103:8081/repository/{{component}}/com/expense/{{component}}/{{appVersion}}/{{component}}-{{appVersion}}.zip
+    msg: http://44.202.115.103:8081/repository/{{component}}/repository/{{component}}/com/expense/{{component}}/{{appVersion}}/{{component}}-{{appVersion}}.zip
+# http://44.202.115.103:8081/repository/backend/repository/backend/com/expense/backend/1.3.0/backend-1.3.0.zip
 
 - name: Download artifact from nexus
   ansible.builtin.unarchive:
-    url: http://44.202.115.103:8081/repository/{{component}}/com/expense/{{component}}/{{appVersion}}/{{component}}-{{appVersion}}.zip
+    url: http://44.202.115.103:8081/repository/{{component}}/repository/{{component}}/com/expense/{{component}}/{{appVersion}}/{{component}}-{{appVersion}}.zip
     dest: "{{APP_LOCATION}}"
     remote_src: yes
 
